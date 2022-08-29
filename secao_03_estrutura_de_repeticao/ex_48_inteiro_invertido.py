@@ -21,3 +21,5 @@ Exemplo:
 
 def inverter_inteiro(numero):
     """Escreva aqui em baixo a sua solução"""
+
+    print(str(numero)[::-1])

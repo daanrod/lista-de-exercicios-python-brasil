@@ -56,3 +56,46 @@ para registrar a próxima compra.
 
 def rodar_programa_de_caixa():
     """Escreva aqui em baixo a sua solução"""
+
+    lista_compras = []
+    valor_pago = 0
+    valor_troco = 0
+
+    while True:
+        atual_input = float(input("Digite o valor do produto: "))
+        if atual_input == 0:
+            print("Lojas Tabajara")
+            valor_total = sum(lista_compras)
+            valor_pago = float(input("Digite o valor em dinheiro para pagar: "))
+            while valor_pago < valor_total:
+                valor_pago = float(input(f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))
+            valor_troco = valor_pago - valor_total
+            print("Lojas Tabajara")
+            print(f"{'Total':<10}: R$ {valor_total:6.2f}")
+            print(f"{'Dinheiro':<10}: R$ {valor_pago:6.2f}")
+            print(f"{'Troco':<10}: R$ {valor_troco:6.2f}")
+            print("-------------------")
+            lista_compras.clear()
+        elif atual_input == -1 and len(lista_compras) > 0:
+            valor_total = sum(lista_compras)
+            valor_pago = float(input("Digite o valor em dinheiro para pagar: "))
+            while valor_pago < valor_total:
+                valor_pago = float(input(f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))
+            valor_troco = valor_pago - valor_total
+            print("Lojas Tabajara")
+            print(f"{'Total':<10}: R$ {valor_total:6.2f}")
+            print(f"{'Dinheiro':<10}: R$ {valor_pago:6.2f}")
+            print(f"{'Troco':<10}: R$ {valor_troco:6.2f}")
+            print("-------------------")
+            lista_compras.clear()
+            print("Programa encerrado!")
+            break       
+        elif atual_input == -1 and len(lista_compras) == 0:
+            print("Lojas Tabajara")
+            print("-------------------")
+            print("Programa encerrado!")
+            break
+        else:
+            lista_compras.append(atual_input)
+
+rodar_programa_de_caixa()

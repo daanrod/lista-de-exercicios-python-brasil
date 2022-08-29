@@ -59,3 +59,62 @@ Mostre o restultado com duas casas decimais
 
 def calcular_preco_da_compra(kilos_de_morango: int, kilos_de_maca: int):
     """Escreva aqui em baixo a sua solução"""
+
+    """                        
+    Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00,
+    receberá ainda um desconto de 10% sobre este total.
+    """
+
+    vl_morango_ate_5kg = 2.50
+    vl_morango_acima_5kg = 2.20
+    vl_maca_ate_5kg = 1.80
+    vl_maca_acima_5kg = 1.50
+
+    desconto = False
+
+    lista_morango = []
+    lista_maca = []
+    
+    if kilos_de_morango > 0 and kilos_de_morango <= 5:
+        valor_total_morango = kilos_de_morango * vl_morango_ate_5kg
+        lista_morango.append(f'(+)  Morango  - valor:  R$ {valor_total_morango:5.2f} - quantidade:  {kilos_de_morango} kg - preço: R$ {vl_morango_ate_5kg:.2f}/kg')
+    elif kilos_de_morango > 0 and kilos_de_morango > 5:
+        valor_total_morango = kilos_de_morango * vl_morango_acima_5kg
+        lista_morango.append(f'(+)  Morango  - valor:  R$ {valor_total_morango:5.2f} - quantidade:  {kilos_de_morango} kg - preço: R$ {vl_morango_acima_5kg:.2f}/kg')
+    else:
+        valor_total_morango = 0
+
+    if kilos_de_maca > 0 and kilos_de_maca <= 5:
+        valor_total_maca = kilos_de_maca * vl_maca_ate_5kg
+        lista_maca.append(f'(+)  Maça     - valor:  R$ {valor_total_maca:5.2f} - quantidade:  {kilos_de_maca} kg - preço: R$ {vl_maca_ate_5kg:.2f}/kg')
+    elif kilos_de_maca > 0 and kilos_de_maca > 5:
+        valor_total_maca = kilos_de_maca * vl_maca_acima_5kg
+        lista_maca.append(f'(+)  Maça     - valor:  R$ {valor_total_maca:5.2f} - quantidade:  {kilos_de_maca} kg - preço: R$ {vl_maca_acima_5kg:.2f}/kg')
+    else: 
+        valor_total_maca = 0
+
+    if kilos_de_morango + kilos_de_maca > 8:
+        desconto = True
+
+    if len(lista_morango) == 1:
+        imp_morango = lista_morango.pop()
+        print(imp_morango)
+    if len(lista_maca) == 1 :
+        imp_maca = lista_maca.pop()
+        print(imp_maca)
+    
+    valor_compra_total = valor_total_morango + valor_total_maca
+    if desconto == True:
+        valor_desconto = valor_compra_total * 0.1
+        valor_compra_total = valor_compra_total - valor_desconto
+        print(f'(-)  Desconto - valor:  R$ {valor_desconto:5.2f}')
+        print(f'          Valor Total:  R$ {valor_compra_total:5.2f}')
+    elif desconto == False and valor_compra_total > 25:
+        valor_desconto = valor_compra_total * 0.1
+        valor_compra_total = valor_compra_total - valor_desconto
+        print(f'(-)  Desconto - valor:  R$ {valor_desconto:5.2f}')
+        print(f'          Valor Total:  R$ {valor_compra_total:5.2f}')
+    else:
+        valor_desconto = 0
+        print(f'(-)  Desconto - valor:  R$ {valor_desconto:5.2f}')
+        print(f'          Valor Total:  R$ {valor_compra_total:5.2f}')

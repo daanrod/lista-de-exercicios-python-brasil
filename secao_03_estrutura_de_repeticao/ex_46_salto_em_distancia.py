@@ -23,10 +23,10 @@ Mostre os valores com uma casa decimal sem arredondar.
     ---------------------------------
     Melhor salto:  6.5 m
     Pior salto: 5.3 m
-    Média dos demais saltos: 5.8 m
+    Média dos demais saltos: 5.9 m
     ---------------------------------
     Resultado final:
-    Rodrigo Curvêllo: 5.8 m
+    Rodrigo Curvêllo: 5.9 m
     >>> calcular_estatiscas_do_salto('João do Pulo', 6.8, 6.5, 6.1, 6.2, 5.4)
     Atleta: João do Pulo
     ---------------------------------
@@ -38,13 +38,45 @@ Mostre os valores com uma casa decimal sem arredondar.
     ---------------------------------
     Melhor salto:  6.8 m
     Pior salto: 5.4 m
-    Média dos demais saltos: 6.2 m
+    Média dos demais saltos: 6.3 m
     ---------------------------------
     Resultado final:
-    João do Pulo: 6.2 m
+    João do Pulo: 6.3 m
 
 """
 
 
+from statistics import mean
+
+
 def calcular_estatiscas_do_salto(nome, *saltos):
     """Escreva aqui em baixo a sua solução"""
+
+    print(f"Atleta: {nome}")
+    print("---------------------------------")
+
+    melhor_salto = max(saltos)
+    pior_salto = min(saltos)
+
+    saltos_restantes = []
+
+    for salto in saltos:
+        saltos_restantes.append(salto)
+
+    print(f"Primeiro Salto: {saltos[0]} m")
+    print(f"Segundo Salto: {saltos_restantes[1]} m")
+    print(f"Terceiro Salto: {saltos_restantes[2]} m")
+    print(f"Quarto Salto: {saltos_restantes[3]} m")
+    print(f"Quinto Salto: {saltos_restantes[4]} m")
+    ("---------------------------------")
+
+    saltos_restantes.remove(melhor_salto)
+    saltos_restantes.remove(pior_salto)
+    media_demais_saltos = mean(saltos_restantes)
+    print("---------------------------------")
+    print(f"Melhor salto:  {melhor_salto:.1f} m")
+    print(f"Pior salto: {pior_salto:.1f} m")
+    print(f"Média dos demais saltos: {media_demais_saltos:.1f} m")
+    print("---------------------------------")
+    print("Resultado final:")
+    print(f"{nome}: {media_demais_saltos:.1f} m")

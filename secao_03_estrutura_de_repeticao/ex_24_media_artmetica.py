@@ -18,3 +18,13 @@ Faça um programa que calcule o mostre a média aritmética de N notas.
 
 def calcular_media(*notas) -> float:
     """Escreva aqui em baixo a sua solução"""
+
+    if len(notas) != 0:
+        soma = sum(notas)
+        media = soma / len(notas)
+        if soma % len(notas) == 0:
+            print(int(media))
+        else:
+            print(media)
+    else:
+        return "É necessária ao menos uma nota para calcular a média"

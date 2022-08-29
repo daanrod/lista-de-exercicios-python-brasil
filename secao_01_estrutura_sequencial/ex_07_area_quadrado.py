@@ -19,4 +19,9 @@ Mostrar a área com 2 casas decimais.
 
 
 def calcular_area_de_quadrado():
-    """Escreva aqui em baixo a sua solução"""
+    lado = float(input('Digite a altura do quadrado: '))
+    calc_area = lado ** 2
+    calc_dobro = calc_area * 2
+    print(f'A área do quadrado com esse lado é: {calc_area:.2f}')
+    print(f'O dobro da aŕea do quadrado é: {calc_dobro:.2f}')
+

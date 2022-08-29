@@ -33,3 +33,15 @@ Caso contrário, ele será classificado como "Inocente".
 
 def investigar(telefonou: str, estava_no_local: str, mora_perto: str, devia: str, trabalhou: str, ):
     """Escreva aqui em baixo a sua solução"""
+
+    lista = [telefonou, estava_no_local, mora_perto, devia, trabalhou]
+    repeticao = lista.count('Sim')
+
+    if repeticao == 5:
+      return 'Assassino'
+    elif repeticao == 4 or repeticao == 3:
+      return 'Cúmplice'
+    elif repeticao == 2:
+      return 'Suspeito'
+    elif repeticao == 1 or repeticao == 0:
+      return 'Inocente'

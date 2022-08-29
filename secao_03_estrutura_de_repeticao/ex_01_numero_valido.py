@@ -32,5 +32,19 @@ até que o usuário informe um valor válido.
 """
 
 
+from multiprocessing.sharedctypes import Value
+
+
 def obter_numero_valido():
     """Escreva aqui em baixo a sua solução"""
+    
+    while True:
+        valor = input('Digite um numero de 0 a 10: ')
+        try:
+            valor = int(valor)
+        except ValueError:
+            print(f'Número inválido: {valor}')
+        else:
+            if 0 <= valor <= 10:
+                return valor
+            print(f'Número inválido: {valor}')

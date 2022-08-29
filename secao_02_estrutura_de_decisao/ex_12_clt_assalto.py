@@ -53,3 +53,47 @@ até R$ 99999,99
 
 def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int):
     """Escreva aqui em baixo a sua solução"""
+
+    sal_bruto = valor_hora * horas_trabalhadas
+
+    if sal_bruto > 900 and sal_bruto <= 1500:
+        pc_ir = 5
+        vl_ir = sal_bruto * 0.05
+        vl_inss = sal_bruto * 0.1
+        vl_sind = sal_bruto * 0.03
+        vl_fgts = sal_bruto * 0.11
+        desc_total = vl_ir + vl_inss + vl_sind
+        sal_liquido = sal_bruto - desc_total
+        sal_liquido = sal_bruto - desc_total
+    elif sal_bruto > 1500 and sal_bruto <= 2500:
+        pc_ir = 10
+        vl_ir = sal_bruto * 0.1
+        vl_inss = sal_bruto * 0.1
+        vl_sind = sal_bruto * 0.03
+        vl_fgts = sal_bruto * 0.11
+        desc_total = vl_ir + vl_inss + vl_sind
+        sal_liquido = sal_bruto - desc_total
+    elif sal_bruto > 2500:
+        pc_ir = 20
+        vl_ir = sal_bruto * 0.2
+        vl_inss = sal_bruto * 0.1
+        vl_sind = sal_bruto * 0.03
+        vl_fgts = sal_bruto * 0.11
+        desc_total = vl_ir + vl_inss + vl_sind
+        sal_liquido = sal_bruto - desc_total
+    else:
+        pc_ir = 0
+        vl_ir = 0
+        vl_inss = sal_bruto * 0.1
+        vl_sind = sal_bruto * 0.03
+        vl_fgts = sal_bruto * 0.11
+        desc_total = vl_inss + vl_sind
+        sal_liquido = sal_bruto - desc_total
+
+    print(f'Salário Bruto: (R$ {f"{valor_hora:.2f} * {horas_trabalhadas})":16}: R${sal_bruto:9.2f}')
+    print(f'(-) IR ({str(pc_ir)+"%)":27}: R${vl_ir:9.2f}')
+    print(f'(-) INSS (10%)                     : R${vl_inss:9.2f}')
+    print(f'(-) Sindicato (3%)                 : R${vl_sind:9.2f}')
+    print(f'FGTS (11%)                         : R${vl_fgts:9.2f}')
+    print(f'Total de descontos                 : R${desc_total:9.2f}')
+    print(f'Salário Liquido                    : R${sal_liquido:9.2f}')

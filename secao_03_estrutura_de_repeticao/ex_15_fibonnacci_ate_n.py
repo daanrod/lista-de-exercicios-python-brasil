@@ -23,5 +23,17 @@ n−ésimo termo.
 """
 
 
+from operator import iadd
+
+
 def calcular_serie_de_fibonacci(n: int) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    fibo = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+    rm = len(fibo) - n
+    
+    for i in range(rm):
+        fibo.pop()
+    fibo = str(fibo).strip('[]')
+    return fibo

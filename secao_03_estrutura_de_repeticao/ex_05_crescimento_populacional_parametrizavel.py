@@ -33,11 +33,12 @@ def calcular_ano_ultrapassagem_populacional(
     crescimento_p2 = taxa_crescimento_populacao_maior
     p2_porcentagem = crescimento_p2 * 100
 
+    if taxa_crescimento_populacao_menor < taxa_crescimento_populacao_maior:
+        return f'A taxa de crescimento do país B ({p2_porcentagem:.1f}%) deve ser menor do que a do país A ({p1_porcentagem:.1f}%)'
+
     while True:
+        if p1 > p2:
+            return f'População de A, depois de {anos} ano(s) será de {int(p1)} pessoas, superando a de B, que será de {int(p2)} pessoas'
         p1 = p1 + (p1 * crescimento_p1)
         p2 = p2 + (p2 * crescimento_p2)
         anos += 1
-        if p1 < p2:
-            return f'A taxa de crescimento do país B ({p2_porcentagem:.1f}%) deve ser menor do que a do país A ({p1_porcentagem:.1f}%)'
-        if p1 > p2:
-            return f'População de A, depois de {anos} ano(s) será de {int(p1)} pessoas, superando a de B, que será de {int(p2)} pessoas'

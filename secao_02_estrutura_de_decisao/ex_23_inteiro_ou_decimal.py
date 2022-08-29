@@ -20,5 +20,16 @@ arredondamento.
 """
 
 
+import math
+
+
 def decidir_se_eh_inteiro_ou_decimal(valor: str) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    valor = float(valor)
+    valor_arredondado = math.ceil(valor)
+
+    if valor_arredondado == valor:
+        return 'Inteiro'
+    else:
+        return 'Decimal'

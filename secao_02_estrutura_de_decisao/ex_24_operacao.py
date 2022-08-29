@@ -29,5 +29,54 @@ Mostre o restultado com duas casas decimais
 """
 
 
+import math
+
+
 def fazer_operacao_e_classificar(n_1: float, n_2: float, operacao: str):
     """Escreva aqui em baixo a sua solução"""
+
+    # calculo baseado na operação
+    if operacao == '+':
+      resultado = float(n_1 + n_2)
+    elif operacao == '-':
+      resultado = float(n_1 - n_2)
+    elif operacao == '*':
+      resultado = float(n_1 * n_2)
+    elif operacao == '/':
+      resultado = float(n_1 / n_2)
+
+    texto = []
+    
+    arr = math.ceil(resultado)
+    if arr == resultado:
+      calc_par = resultado % 2
+      if calc_par == 0:
+        texto.append('par')
+      else:
+        texto.append('impar')
+      
+    if resultado == 0:
+      texto.append('neutro')
+    elif resultado > 0:
+      texto.append('positivo')
+    else:
+      texto.append('negativo')
+    
+    if arr == resultado:
+      texto.append('inteiro')
+    else:
+      texto.append('decimal')
+
+    if len(texto) == 2:
+      pt1, pt2 = texto
+      saida_texto = f'{pt1} e {pt2}'
+    if len(texto) == 3:
+      pt1, pt2, pt3 = texto
+      saida_texto = f'{pt1}, {pt2} e {pt3}'
+    
+
+    print(f'Resultado: {resultado:.2f}')
+    print(f'Número é {saida_texto}.')
+
+fazer_operacao_e_classificar(20, 12, '+')
+    

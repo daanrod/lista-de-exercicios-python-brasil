@@ -53,6 +53,60 @@ da média das alturas e dos pesos dos clientes
 
 """
 
+from statistics import mean
+
 
 def rodar_senso():
     """Escreva aqui em baixo a sua solução"""
+
+    clientes = []
+    cliente_peso = []
+    cliente_altura = []
+    cliente_maior = 0
+    cliente_menor = 0
+    cliente_mais_magro = 0
+    cliente_mais_gordo = 0
+    media_altura = 0
+    media_peso = 0
+
+    # Informa as opçoes de entrada ao usuario, caso deseje prosseguir o adiciona em uma lista para canditatos ao senso.
+    while True:
+        nome = input(
+            "Digite 0 para encerrar o programa ou o seu nome ser adicionado a lista: "
+        )
+        if nome == "0":
+            break
+        altura = int(input("Digite sua altura: "))
+        peso = int(input("Digite seu peso: "))
+        clientes.append([nome, altura, peso])
+
+    # Separa os pesos e alturas conform a ordem do indice original
+    for i in range(len(clientes)):
+        cliente_altura.append(clientes[i][1])
+        cliente_peso.append(clientes[i][2])
+
+    # Define os valores necessarios para a saida
+    cliente_maior = max(cliente_altura)
+    cliente_menor = min(cliente_altura)
+    cliente_mais_magro = min(cliente_peso)
+    cliente_mais_gordo = max(cliente_peso)
+    media_altura = mean(cliente_altura)
+    media_peso = mean(cliente_peso)
+
+    # Define o nome a quem pertence o dado na saida, conforme a ordem do indice
+    cliente_maior_index = cliente_altura.index(cliente_maior)
+    nome_maior = clientes[cliente_maior_index][0]
+    cliente_menor_index = cliente_altura.index(cliente_menor)
+    nome_menor = clientes[cliente_menor_index][0]
+    cliente_magro_index = cliente_peso.index(cliente_mais_magro)
+    nome_magro = clientes[cliente_magro_index][0]
+    cliente_gordo_index = cliente_peso.index(cliente_mais_gordo)
+    nome_gordo = clientes[cliente_gordo_index][0]
+
+    print(f"Cliente mais alto: {nome_maior}, com {cliente_maior} centímetros")
+    print(f"Cliente mais baixo: {nome_menor}, com {cliente_menor} centímetros")
+    print(f"Cliente mais magro: {nome_magro}, com {cliente_mais_magro} kilos")
+    print(f"Cliente mais gordo: {nome_gordo}, com {cliente_mais_gordo} kilos")
+    print("--------------------------------------------------")
+    print(f"Media de altura dos clientes: {media_altura:.1f} centímetros")
+    print(f"Media de peso dos clientes: {media_peso:.1f} kilos")

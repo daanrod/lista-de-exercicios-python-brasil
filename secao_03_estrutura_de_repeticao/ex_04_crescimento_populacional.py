@@ -25,9 +25,8 @@ def calcular_ano_ultrapassagem_populacional() -> str:
     crescimento_p2 = 0.015
 
     while True:
+        if p1 > p2:
+            return f"População de A, depois de {anos} ano(s) será de {int(p1)} pessoas, superando a de B, que será de {int(p2)} pessoas"
         p1 = p1 + (p1 * crescimento_p1)
         p2 = p2 + (p2 * crescimento_p2)
         anos += 1
-        if p1 > p2:
-            return f'População de A, depois de {anos} ano(s) será de {int(p1)} pessoas, superando a de B, que será de {int(p2)} pessoas'
-        

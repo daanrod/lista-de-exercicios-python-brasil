@@ -90,3 +90,32 @@ from collections import Counter
 
 def apurar_votos(*votos):
     """Escreva aqui em baixo a sua solução"""
+
+    opcoes = {
+        '1': 'Bostonaro',
+        '2': 'Luladrão',
+        '3': 'Dilmanta',
+        '4': 'FHC Isentão',
+        '5': 'Votos Nulos',
+        '6': 'Votos Brancos'
+    }
+
+    votos_por_candidato = Counter(votos)
+    total_de_votos = sum(votos_por_candidato.values())
+
+    print(f'Código do Candidato Nome do Candidato Votos Porcentagem sobre total')
+
+    nulos_brancos = ('5', '6')
+    for codigo, candidato in opcoes.items():
+        votos = votos_por_candidato[codigo]
+        porcentagem = votos / total_de_votos
+        if codigo not in nulos_brancos:
+            print(f'{codigo:19} {candidato:17} {votos:<5} {porcentagem:6.1%}')
+
+    print(f'-------------------------------------------------------------------')
+
+    for codigo, candidato in opcoes.items():
+        votos = votos_por_candidato[codigo]
+        porcentagem = votos / total_de_votos
+        if codigo in nulos_brancos:
+            print(f'{codigo:19} {candidato:17} {votos:<5} {porcentagem:6.1%}')

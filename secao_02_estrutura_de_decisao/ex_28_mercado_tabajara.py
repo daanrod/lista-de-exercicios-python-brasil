@@ -47,3 +47,53 @@ Mostre o restultado com duas casas decimais
 
 def calcular_preco_da_carne(tipo_de_carne: str, kilos_de_carne: int, forma_de_pagamento: str) -> str:
     """Escreva aqui em baixo a sua solução"""
+
+    file_ate_5kg = 4.90
+    file_acima_5kg = 5.80
+    alcatra_ate_5kg = 5.90
+    alcatra_acima_5kg = 6.80
+    picanha_ate_5kg = 6.90
+    picanha_acima_5kg = 7.80
+
+
+    lista_compra= []
+    """8 kg de Picanha a R$ 7.80/kg saem a R$ 62.40. Com desconto de 5% pelo pagamento feito com cartão tabajara, fica R$ 59.28"""
+    """6 kg de Picanha a R$ 7.80/kg saem a R$ 46.80. Não há desconto, pagamento feito com dinheiro"""
+
+    if kilos_de_carne <= 5 and tipo_de_carne == 'Filé Duplo':
+        valor_carne = file_ate_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+    elif kilos_de_carne > 5 and tipo_de_carne == 'Filé Duplo':
+        valor_carne = file_acima_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+    if kilos_de_carne <= 5 and tipo_de_carne == 'Alcatra':
+        valor_carne = alcatra_ate_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+    elif kilos_de_carne > 5 and tipo_de_carne == 'Alcatra':
+        valor_carne = alcatra_acima_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+    if kilos_de_carne <= 5 and tipo_de_carne == 'Picanha':
+        valor_carne = picanha_ate_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+    elif kilos_de_carne > 5 and tipo_de_carne == 'Picanha':
+        valor_carne = picanha_acima_5kg
+        valor_total_pedido = valor_carne * kilos_de_carne
+        lista_compra.append(f'{kilos_de_carne} kg de {tipo_de_carne} a R$ {valor_carne:.2f}/kg saem a R$ {valor_total_pedido:.2f}.')
+
+    if forma_de_pagamento == 'cartão tabajara':
+        desconto = valor_total_pedido * 0.05
+        valor_com_desconto = valor_total_pedido - desconto
+        lista_compra.append(f'Com desconto de 5% pelo pagamento feito com cartão tabajara, fica R$ {valor_com_desconto:.2f}')
+    elif forma_de_pagamento == 'pix':
+        lista_compra.append('Não há desconto, pagamento feito com pix')
+    else:
+        lista_compra.append('Não há desconto, pagamento feito com dinheiro')
+
+    if len(lista_compra) == 2:
+        pt1, pt2 = lista_compra
+        return f'{pt1} {pt2}'
