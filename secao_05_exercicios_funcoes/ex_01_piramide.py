@@ -13,3 +13,17 @@ Faça um programa para imprimir:
 para um n informado pelo usuário. Use uma função que receba um valor n inteiro e imprima até a n-ésima linha.
 
 """
+
+
+def piramide_number(value):
+    
+    piramide = []
+    for n in range(1,value+1):
+        piramide.append(f'{n}   '*n)
+    print("\n".join(piramide))
+              
+
+
+
+if __name__ == "__main__":
+    piramide_number(9)

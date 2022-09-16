@@ -46,7 +46,6 @@ Gabarito da Prova:
     Total de Alunos: 2
 """
 
-
 from statistics import mean
 
 
@@ -73,7 +72,6 @@ def corrigir(*provas):
         print(f'{nome_aluno:21s} {nota:2d}')
         notas.append(nota)
 
-    
     menor_nota = min(notas)
     maior_nota = max(notas)
     media_geral = mean(notas)
