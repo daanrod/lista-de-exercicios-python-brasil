@@ -2,7 +2,8 @@
 Exercício 08 da seção de funções da Python Brasil:
 https://wiki.python.org.br/ExerciciosFuncoes
 
-Faça uma função que informe a quantidade de dígitos de um determinado número inteiro informado.
+Faça uma função que informe a quantidade de dígitos de um determinado número 
+inteiro informado.
 
     >>> imprimir_qtde_digitos_do_inteiro(11235813213455)
     14

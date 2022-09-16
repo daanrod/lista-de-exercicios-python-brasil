@@ -16,13 +16,11 @@ para um n informado pelo usuário. Use uma função que receba um valor n inteir
 
 
 def piramide_number(value):
-    
+
     piramide = []
-    for n in range(1,value+1):
+    for n in range(1, value+1):
         piramide.append(f'{n}   '*n)
     print("\n".join(piramide))
-              
-
 
 
 if __name__ == "__main__":
