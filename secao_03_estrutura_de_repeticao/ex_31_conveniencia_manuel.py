@@ -2,13 +2,17 @@
 Exercício 31 da seção de estrutura sequencial da Python Brasil:
 https://wiki.python.org.br/EstruturaDeRepeticao
 
-FO Sr. Manoel Joaquim expandiu seus negócios para além dos negócios de 1,99 e agora possui uma loja de conveniências.
-Faça um programa que implemente uma caixa registradora rudimentar. O programa deverá receber um número desconhecido de
+FO Sr. Manoel Joaquim expandiu seus negócios para além dos negócios de 1,99 e
+agora possui uma loja de conveniências.
+Faça um programa que implemente uma caixa registradora rudimentar. O programa
+deverá receber um número desconhecido de
 valores referentes aos preços das mercadorias.
 Um valor zero deve ser informado pelo operador para indicar o final da compra.
 Um valor -1 deve ser informado pelo operador para finalizar o programas
-O programa deve então mostrar o total da compra e perguntar o valor em dinheiro que o cliente forneceu, para então
-calcular e mostrar o valor do troco. Após esta operação, o programa deverá voltar ao ponto inicial,
+O programa deve então mostrar o total da compra e perguntar o valor em
+dinheiro que o cliente forneceu, para então
+calcular e mostrar o valor do troco. Após esta operação, o programa deverá
+voltar ao ponto inicial,
 para registrar a próxima compra.
 
     >>> from secao_03_estrutura_de_repeticao import ex_31_conveniencia_manuel
@@ -66,11 +70,12 @@ def rodar_programa_de_caixa():
         if atual_input == 0:
             print("Lojas Tabajara")
             valor_total = sum(lista_compras)
-            valor_pago = float(input("Digite o valor em dinheiro para pagar: "))
+            valor_pago = float(
+                input("Digite o valor em dinheiro para pagar: "))
             while valor_pago < valor_total:
-                valor_pago = float(input(f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))
+                valor_pago = float(input(
+                    f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))  # noqa
             valor_troco = valor_pago - valor_total
-            print("Lojas Tabajara")
             print(f"{'Total':<10}: R$ {valor_total:6.2f}")
             print(f"{'Dinheiro':<10}: R$ {valor_pago:6.2f}")
             print(f"{'Troco':<10}: R$ {valor_troco:6.2f}")
@@ -78,9 +83,11 @@ def rodar_programa_de_caixa():
             lista_compras.clear()
         elif atual_input == -1 and len(lista_compras) > 0:
             valor_total = sum(lista_compras)
-            valor_pago = float(input("Digite o valor em dinheiro para pagar: "))
+            valor_pago = float(
+                input("Digite o valor em dinheiro para pagar: "))
             while valor_pago < valor_total:
-                valor_pago = float(input(f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))
+                valor_pago = float(input(
+                    f'Valor inferior ao total de R$ {valor_total}. Favor inserir valor total ou superior: '))  # noqa
             valor_troco = valor_pago - valor_total
             print("Lojas Tabajara")
             print(f"{'Total':<10}: R$ {valor_total:6.2f}")
@@ -89,7 +96,7 @@ def rodar_programa_de_caixa():
             print("-------------------")
             lista_compras.clear()
             print("Programa encerrado!")
-            break       
+            break
         elif atual_input == -1 and len(lista_compras) == 0:
             print("Lojas Tabajara")
             print("-------------------")
@@ -97,5 +104,3 @@ def rodar_programa_de_caixa():
             break
         else:
             lista_compras.append(atual_input)
-
-rodar_programa_de_caixa()
